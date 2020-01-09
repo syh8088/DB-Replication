@@ -17,14 +17,19 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-datasource:
+mybatis:
+  type-aliases-package: springboot.db.replication
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
+datasource:
   url: jdbc:mysql://ec2-13-124-62-97.ap-northeast-2.compute.amazonaws.com:3306/syh8088?useSSL=false&serverTimezone=UTC&useCursors=false&sendStringParametersAsUnicode=false&characterEncoding=UTF8
   slave-list:
     - name: slave_1
       url: jdbc:mysql://ec2-13-125-44-105.ap-northeast-2.compute.amazonaws.com:3306/syh8088?useSSL=false&serverTimezone=UTC&useCursors=false&sendStringParametersAsUnicode=false&characterEncoding=UTF8
   username:
-  password: 
+  password:
 
 logging:
   level:
