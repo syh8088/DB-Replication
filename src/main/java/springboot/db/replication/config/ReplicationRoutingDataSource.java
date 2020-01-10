@@ -25,6 +25,7 @@ public class ReplicationRoutingDataSource extends AbstractRoutingDataSource {
     }
     @Override
     protected Object determineCurrentLookupKey() {
+        System.out.println("currentTransactionName : {}  = " +  TransactionSynchronizationManager.getCurrentTransactionName());
         boolean isReadOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();
         if(isReadOnly) {
             return dataSourceNameList.getOne();

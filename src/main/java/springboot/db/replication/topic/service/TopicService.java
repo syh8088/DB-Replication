@@ -2,6 +2,7 @@ package springboot.db.replication.topic.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import springboot.db.replication.topic.model.entity.Topic;
 import springboot.db.replication.topic.model.request.SaveTopicRequest;
@@ -54,7 +55,7 @@ public class TopicService {
         return topics;
     }
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true, propagation = Propagation.REQUIRES_NEW)
     public Topic getTopic(long topicId) {
         return topicRepository.findById(topicId).orElse(null);
     }
@@ -79,6 +80,7 @@ public class TopicService {
         topic.setTitle(saveTopicRequest.getTitle());
         topic.setDescription(saveTopicRequest.getDescription());
         topic.setAuthor(saveTopicRequest.getAuthor());
+        topicRepository.save(topic);
     }
 
     @Transactional
