@@ -24,10 +24,10 @@ mybatis:
     map-underscore-to-camel-case: true
 
 datasource:
-  url: jdbc:mysql://ec2-13-124-62-97.ap-northeast-2.compute.amazonaws.com:3306/syh8088?useSSL=false&serverTimezone=UTC&useCursors=false&sendStringParametersAsUnicode=false&characterEncoding=UTF8
+  url: jdbc:mysql://ec2-3-35-135-230.ap-northeast-2.compute.amazonaws.com:3306/syh8088?useSSL=false&serverTimezone=UTC&useCursors=false&sendStringParametersAsUnicode=false&characterEncoding=UTF8
   slave-list:
     - name: slave_1
-      url: jdbc:mysql://ec2-13-125-44-105.ap-northeast-2.compute.amazonaws.com:3306/syh8088?useSSL=false&serverTimezone=UTC&useCursors=false&sendStringParametersAsUnicode=false&characterEncoding=UTF8
+      url: jdbc:mysql://ec2-3-34-3-34.ap-northeast-2.compute.amazonaws.com:3306/syh8088?useSSL=false&serverTimezone=UTC&useCursors=false&sendStringParametersAsUnicode=false&characterEncoding=UTF8
   username:
   password:
 
